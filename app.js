@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 // middleware
 app.use(express.static('public'));
+app.use(express.json());
 
 // logs
 app.use(morgan('dev'));
