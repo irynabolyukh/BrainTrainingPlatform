@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan'); 
 const dotenv = require('dotenv').config();
 const authRoutes = require('./routes/authRoutes');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,6 +11,7 @@ const PORT = process.env.PORT || 3000;
 // middleware
 app.use(express.static('public'));
 app.use(express.json());
+app.use(cookieParser());
 
 // logs
 app.use(morgan('dev'));
@@ -27,4 +29,3 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCr
 app.get('/', (req, res) => res.render('home'));
 app.get('/games', (req, res) => res.render('games'));
 app.use(authRoutes);
-
