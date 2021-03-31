@@ -1,6 +1,6 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
-const maxAge = 24 * 60 * 60; //1 day in seconds
+const maxAge = 3 * 60 * 60; //3 hours in seconds
 
 const handleErrors = (err) => {
   console.log(err.message, err.code);
@@ -72,4 +72,9 @@ module.exports.login_post = async (req,res) =>{
     const errors = handleErrors(err);
     res.status(400).json({errors});
   }
+}
+
+module.exports.logout_get = (req, res) => {
+  res.cookie('jwt', '', {httpOnly: true, maxAge: 1});
+  res.redirect('/');
 }
