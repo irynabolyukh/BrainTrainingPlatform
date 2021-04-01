@@ -47,6 +47,22 @@ userSchema.statics.login = async function(email, password){
   throw Error('wrong email');
 }
 
+// method to get User name
+userSchema.virtual('name').get(function() {
+  return this.email.substring(0, this.email.lastIndexOf("@"));
+});
+
+// method to get User status
+userSchema.virtual('status').get(function() {
+  if (this.score > 1000) {
+    return "Proficient";
+  } 
+  if (this.score > 100) {
+    return "Average";
+  }
+  return "Beginner"; 
+});
+
 const User = mongoose.model('user', userSchema);
 
 module.exports = User;
