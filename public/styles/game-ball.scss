@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+#canvas {
+  border: 3px dotted #260202;
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+}
+
+input{
+  text-align: center;
+}
+
+.container{
+  margin: 0 auto 10px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
