@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan'); 
 const dotenv = require('dotenv').config();
 const authRoutes = require('./routes/authRoutes');
+const gamesRoutes = require('./routes/gamesRoutes');
 const cookieParser = require('cookie-parser');
 const { requireAuth, checkUser } = require('./middleware/authMiddleware');
 
@@ -31,4 +32,5 @@ app.get('*', checkUser);
 app.get('/', (req, res) => res.render('home'));
 app.get('/games', requireAuth, (req, res) => res.render('games'));
 app.get('/game-ball', requireAuth, (req, res) => res.render('games/game-ball'));
+app.use(gamesRoutes);
 app.use(authRoutes);
