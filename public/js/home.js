@@ -11,6 +11,19 @@ function fetchdata(){
         }
     });
 }
+
+function setStatistic(data) {
+    let $statDiv = $("#my-statistic");
+    $statDiv.empty();
+    $statDiv.append("<tr><td class=\"align-middle\">Per Day:</td><td class=\"align-middle\">"
+        + data.scorePerDay + "</td></tr>" +
+        "<tr><td class=\"align-middle\">Per Month:"
+        +"</td><td class=\"align-middle\">" + data.scorePerMonth + "</td></tr>" +
+        "<tr><td class=\"align-middle\">Per Year:"
+        +"</td><td class=\"align-middle\">" + data.scorePerYear + "</td></tr>"
+    );
+}
+
 function setTop(data) {
     let $appShow = $("#top");
     $appShow.empty();
@@ -32,6 +45,21 @@ function setTop(data) {
     }
 }
 
+function getStatistic() {
+    $.ajax({
+        url: '/my-statistic',
+        type: 'GET',
+        headers: {
+            "Content-Type":"application/json"
+        },
+        success: (response) => setStatistic(response),
+        complete: function(data){
+            setTimeout(getStatistic,1000);
+        }
+    });
+}
+
 $(document).ready(function(){
     fetchdata();
+    getStatistic();
 });
