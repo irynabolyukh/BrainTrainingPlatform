@@ -12,6 +12,7 @@ let mouseCoords = { x: undefined, y: undefined };
 let hasWon = false;
 let isClicked = false;
 let foundCirclesArray = [];
+let scored;
 
 //почати гру з натиском на кнопку старт
 btn.addEventListener('click', () => {
@@ -106,9 +107,23 @@ function animate() {
         hasWon = true;
     }
 
+    // якщо гру було виграно, то відправляємо формочку для оновлення результатів користувача
     if(hasWon){
+        scored = (circlesAmount.value * 10) / timeLimit.value;
+        console.log(scored);
         if(alert('You have scored!')){}
-        else window.location.reload();
+        else {
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "/update-score", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({
+                score: scored
+            }));
+            // почекаємо, щоб оновився рахунок
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
+        }
     }
     else{
         requestAnimationFrame(animate);
