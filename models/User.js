@@ -54,10 +54,10 @@ userSchema.virtual('name').get(function() {
 
 // method to get User status
 userSchema.virtual('status').get(function() {
-  if (this.score > 1000) {
+  if (this.score >= 10000) {
     return "Proficient";
   } 
-  if (this.score > 100) {
+  if (this.score >= 1000) {
     return "Average";
   }
   return "Beginner"; 

@@ -30,5 +30,6 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCr
 // routes
 app.get('*', checkUser);
 app.get('/', (req, res) => res.render('home'));
+app.get('/test', requireAuth, (req, res) => res.render('test'));
 app.use(authRoutes);
 app.use(gamesRoutes);

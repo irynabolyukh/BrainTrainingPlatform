@@ -1,0 +1,76 @@
+<head>
+    <title>Test your memory</title>
+    <link rel="icon" href="/brain.ico">
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+
+<div id="words" class="container">
+    <p>Tiger</p>
+    <p>Violet</p>
+    <p>Sun</p>
+    <p>Hello</p>
+    <p>Forest</p>
+    <a class="btn btn-game" onclick="displayForm()">Next</a>
+</div>
+<div id="form" class="container">
+    <input id="tiger" name="tiger" type="text">
+    <input id="violet" name="violet" type="text">
+    <input id="sun" name="sun" type="text">
+    <input id="hello" name="hello" type="text">
+    <input id="forest" name="forest" type="text">
+    <a class="btn btn-game" onclick="checkForm()">Check</a>
+</div>
+<div id="result" class="container">
+    <h2>Thank you for completing the test!</h2>
+</div>
+<div id="start" class="container">
+    <a href="/" class="btn btn-game">Start</a>
+</div>
+<script>
+    const formDiv = document.getElementById('form');
+    const resDiv = document.getElementById('result');
+    const wordsDiv = document.getElementById('words');
+    const startDiv = document.getElementById('start');
+    const formArray = [];
+    formArray.push(document.getElementById('tiger'));
+    formArray.push(document.getElementById('violet'));
+    formArray.push(document.getElementById('sun'));
+    formArray.push(document.getElementById('hello'));
+    formArray.push(document.getElementById('forest'));
+    let score = 0;
+    formDiv.style.visibility = "hidden";
+    resDiv.style.visibility = "hidden";
+    startDiv.style.visibility = "hidden";
+
+    function displayForm() {
+        wordsDiv.style.visibility = "hidden";
+        formDiv.style.visibility = "visible";
+    }
+
+    function checkForm() {
+        let newScore = 10;
+        formArray.forEach(element => (element.value === element.name) ? score++ : score);
+        if(score >= 5 && score <= 7){
+            newScore = 1000;
+        }
+        if(score > 7){
+            newScore = 10000;
+        }
+        // встановлюємо рівень користувача
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "/update-score", true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            score: newScore
+        }));
+        formDiv.style.visibility = "hidden";
+        let resP = document.createElement("p");
+        let text = document.createTextNode("You have scored "+ score + " out of 12.");
+        resP.appendChild(text);
+        resDiv.appendChild(resP);
+        resDiv.style.visibility = "visible";
+        startDiv.style.visibility = "visible";
+    }
+</script>
+
+<%- include('partials/footer'); -%>

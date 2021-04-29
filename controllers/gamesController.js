@@ -16,7 +16,7 @@ module.exports.update_score = (req, res, next) =>{
                 console.log(decodedToken);
                 let user = await User.findById(decodedToken.id);
                 let newScore = user.score + score;
-                await User.updateOne({ }, { score: newScore });
+                await User.updateOne({ _id: user.id}, { score: newScore });
                 next();
             }
         });

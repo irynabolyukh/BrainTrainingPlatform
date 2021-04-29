@@ -186,4 +186,8 @@ footer {
   margin-top: 120px;
   color: #aaa;
 }
+
+a {
+  cursor: pointer;
+}
 /*# sourceMappingURL=styles.css.map */
