@@ -5,7 +5,7 @@ const circlesAmount = document.querySelector('#amount');
 const btn = document.querySelector('#start');
 const circleRadius = 40;
 
-let h = canvas.height = innerHeight - 375;
+let h = canvas.height = innerHeight - 200;
 let w = canvas.width = innerWidth - 375;
 let circleArray;
 let mouseCoords = { x: undefined, y: undefined };

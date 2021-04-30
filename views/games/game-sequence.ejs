@@ -5,9 +5,23 @@
 <body>
 <div id='controls' class="container">
     <label for='timeLimit'>Time limit(1-5)</label>
+        <% if (user.status === 'Beginner') { %>
+            <p>Recommended for you: 2</p>
+        <% } else if (user.status === 'Average') { %>
+            <p>Recommended for you: 1</p>
+        <% } else { %>
+            <p>Recommended for you: 2</p>
+        <% } %>
     <input type='number' id='timeLimit' name='timeLimit' min='1' max='5'>
-    <label for='amount'>Amount of circles(1-20)</label>
-    <input type='number' id='amount' name='amount' min='1' max='20'>
+    <label for='amount'>Amount of circles(3-20)</label>
+        <% if (user.status === 'Beginner') { %>
+            <p>Recommended for you: 3</p>
+        <% } else if (user.status === 'Average') { %>
+            <p>Recommended for you: 5</p>
+        <% } else { %>
+            <p>Recommended for you: 10</p>
+        <% } %>
+    <input type='number' id='amount' name='amount' min='3' max='20'>
     <button type='button' id='start'>Start</button>
 </div>
 <div class="container">

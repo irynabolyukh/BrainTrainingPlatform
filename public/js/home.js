@@ -54,7 +54,7 @@ function getStatistic() {
         },
         success: (response) => setStatistic(response),
         complete: function(data){
-            setTimeout(getStatistic,1000);
+            setTimeout(getStatistic,5000);
         }
     });
 }
