@@ -15,12 +15,9 @@ function fetchdata(){
 function setStatistic(data) {
     let $statDiv = $("#my-statistic");
     $statDiv.empty();
-    $statDiv.append("<tr><td class=\"align-middle\">Per Day:</td><td class=\"align-middle\">"
-        + data.scorePerDay + "</td></tr>" +
-        "<tr><td class=\"align-middle\">Per Month:"
-        +"</td><td class=\"align-middle\">" + data.scorePerMonth + "</td></tr>" +
-        "<tr><td class=\"align-middle\">Per Year:"
-        +"</td><td class=\"align-middle\">" + data.scorePerYear + "</td></tr>"
+    $statDiv.append("<p>Per Day: " + data.scorePerDay + "<p>" +
+        "<p>Per Month: " + data.scorePerMonth + "<p>" +
+        "<p>Per Year: " + data.scorePerYear + "<p>"
     );
 }
 
@@ -30,16 +27,16 @@ function setTop(data) {
     if(data.length > 2){
         for(let i = 0; i < 3; i++){
             $appShow.append(
-                "<tr><td class=\"align-middle\">" + data[i].email
-                +"</td><td class=\"align-middle\">" + data[i].score + "</td></tr>"
+                "<p>" + data[i].score
+                + " cls : " + getName(data[i].email) + "</p>"
             );
         }
     }
     else{
         data.forEach((player) => {
             $appShow.append(
-                "<tr><td class=\"align-middle\">" + player.email
-                + "</td><td class=\"align-middle\">" + player.score + "</td></tr>"
+                "<p>" + player.score
+                + " cls : " + getName(player.email) + "</p>"
             );
         });
     }
@@ -57,6 +54,10 @@ function getStatistic() {
             setTimeout(getStatistic,5000);
         }
     });
+}
+
+function getName(email){
+    return email.substring(0, email.lastIndexOf("@"))
 }
 
 $(document).ready(function(){
