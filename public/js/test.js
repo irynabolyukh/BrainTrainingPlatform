@@ -14,13 +14,14 @@ resDiv.style.visibility = "hidden";
 startDiv.style.visibility = "hidden";
 
 function displayForm() {
-    wordsDiv.style.visibility = "hidden";
+    // wordsDiv.style.visibility = "hidden";
+    wordsDiv.remove();
     formDiv.style.visibility = "visible";
 }
 
 function checkForm() {
     let newScore = 10;
-    formArray.forEach(element => (element.value === element.name) ? score++ : score);
+    formArray.forEach(element => ((element.value).toLowerCase() === element.name) ? score++ : score);
     if(score >= 5 && score <= 7){
         newScore = 1000;
     }
@@ -34,7 +35,8 @@ function checkForm() {
     xhr.send(JSON.stringify({
         score: newScore
     }));
-    formDiv.style.visibility = "hidden";
+    // formDiv.style.visibility = "hidden";
+    formDiv.remove();
     let resP = document.createElement("p");
     let text = document.createTextNode("You have scored "+ score + " out of 12.");
     resP.appendChild(text);

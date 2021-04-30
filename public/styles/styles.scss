@@ -48,10 +48,16 @@ nav li a{
 .btn{
   border-radius: 36px;
   background: #FEE996;
+  border: 1px solid black;
+  text-align: center;
 
   &-game{
-    padding: 3px 15px;
+    padding: 3px 10px;
     font-weight: 600;
+  }
+
+  &:hover {
+    background: #f1b1ee;
   }
 }
 p{

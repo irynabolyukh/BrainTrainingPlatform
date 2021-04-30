@@ -2,28 +2,65 @@
     <title>Test your memory</title>
     <link rel="icon" href="/brain.ico">
     <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/test.css">
 </head>
-
+<div class="container info">
+    <h1>Memory Test</h1>
+</div>
 <div id="words" class="container">
-    <p>Tiger</p>
-    <p>Violet</p>
-    <p>Sun</p>
-    <p>Hello</p>
-    <p>Forest</p>
+    <p>There are twelve words you need to remember. Please concentrate for a few seconds
+    on each word and click <b>Next</b> to check how many you managed to remember.</p>
+    <div class="row">
+        <div class="column">
+            <p>Tiger</p>
+            <p>Violet</p>
+            <p>Sun</p>
+            <p>Hello</p>
+            <p>Forest</p>
+            <p>Teapot</p>
+        </div>
+        <div class="column">
+            <p>Magic</p>
+            <p>Holiday</p>
+            <p>Game</p>
+            <p>Success</p>
+            <p>Blossom</p>
+            <p>Orange</p>
+        </div>
+    </div>
     <a class="btn btn-game" onclick="displayForm()">Next</a>
 </div>
 <div id="form" class="container">
-    <input id="tiger" name="tiger" type="text">
-    <input id="violet" name="violet" type="text">
-    <input id="sun" name="sun" type="text">
-    <input id="hello" name="hello" type="text">
-    <input id="forest" name="forest" type="text">
+    <div class="row">
+        <div class="column">
+            <input id="tiger" name="tiger" type="text">
+            <input id="violet" name="violet" type="text">
+            <input id="sun" name="sun" type="text">
+            <input id="hello" name="hello" type="text">
+            <input id="forest" name="forest" type="text">
+            <input id="teapot" name="teapot" type="text">
+        </div>
+        <div class="column">
+            <input id="magic" name="magic" type="text">
+            <input id="holiday" name="holiday" type="text">
+            <input id="game" name="game" type="text">
+            <input id="success" name="success" type="text">
+            <input id="blossom" name="blossom" type="text">
+            <input id="orange" name="orange" type="text">
+        </div>
+    </div>
     <a class="btn btn-game" onclick="checkForm()">Check</a>
 </div>
 <div id="result" class="container">
     <h2>Thank you for completing the test!</h2>
 </div>
 <div id="start" class="container">
+    <p>The cognitive psychologist George A. Miller of Harvard University's Department of Psychology
+         has written an article which states that the number of objects an average human can hold in short-term memory is 7 ± 2.
+        You can find out more about his research
+        <a href="http://www2.psych.utoronto.ca/users/peterson/psy430s2001/Miller%20GA%20Magical%20Seven%20Psych%20Review%201955.pdf"><b>here</b>!</a></p>
+    <p>For now, you can compare your score to this "magical number 7" and try out our games to improve your
+    cognitive skills!</p>
     <a href="/" class="btn btn-game">Start</a>
 </div>
 

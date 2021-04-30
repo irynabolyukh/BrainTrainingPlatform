@@ -60,11 +60,17 @@ nav li a {
 .btn {
   border-radius: 36px;
   background: #FEE996;
+  border: 1px solid black;
+  text-align: center;
 }
 
 .btn-game {
-  padding: 3px 15px;
+  padding: 3px 10px;
   font-weight: 600;
+}
+
+.btn:hover {
+  background: #f1b1ee;
 }
 
 p {
