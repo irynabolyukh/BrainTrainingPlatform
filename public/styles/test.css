@@ -59,4 +59,11 @@ p {
   max-width: 600px;
   width: 100%;
 }
+
+img {
+  margin-top: 20px;
+  max-width: 200px;
+  min-width: 200px;
+  width: 100%;
+}
 /*# sourceMappingURL=test.css.map */

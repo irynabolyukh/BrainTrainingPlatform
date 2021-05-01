@@ -1,7 +1,4 @@
-const formDiv = document.getElementById('form');
 const resDiv = document.getElementById('result');
-const wordsDiv = document.getElementById('words');
-const startDiv = document.getElementById('start');
 const formArray = [];
 formArray.push(document.getElementById('tiger'));
 formArray.push(document.getElementById('violet'));
@@ -9,14 +6,13 @@ formArray.push(document.getElementById('sun'));
 formArray.push(document.getElementById('hello'));
 formArray.push(document.getElementById('forest'));
 let score = 0;
-formDiv.style.visibility = "hidden";
-resDiv.style.visibility = "hidden";
-startDiv.style.visibility = "hidden";
+$( "#form" ).hide();
+$( "#result" ).hide();
+$( "#start" ).hide();
 
 function displayForm() {
-    // wordsDiv.style.visibility = "hidden";
-    wordsDiv.remove();
-    formDiv.style.visibility = "visible";
+    $( "#words" ).remove();
+    $( "#form" ).show();
 }
 
 function checkForm() {
@@ -35,12 +31,11 @@ function checkForm() {
     xhr.send(JSON.stringify({
         score: newScore
     }));
-    // formDiv.style.visibility = "hidden";
-    formDiv.remove();
+    $( "#form" ).hide();
     let resP = document.createElement("p");
     let text = document.createTextNode("You have scored "+ score + " out of 12.");
     resP.appendChild(text);
     resDiv.appendChild(resP);
-    resDiv.style.visibility = "visible";
-    startDiv.style.visibility = "visible";
+    $( "#result" ).show();
+    $( "#start" ).show();
 }
