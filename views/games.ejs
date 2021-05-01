@@ -4,35 +4,50 @@
   <li class="game">
     <img src="/brain.png" alt="">
     <h4>Circles sequence</h4>
-    <h5>Beginner</h5>
+    <h5>All levels</h5>
     <p>Some cool cool game. Lets play!</p>
     <a href="/game-sequence" class="btn btn-game">Play</a>
   </li>
-  <li class="game">
-    <img src="/brain.png" alt="">
-    <h4>Cool game</h4>
-    <p>Some cool cool game. Lets play!</p>
-  </li>
-  <li class="game">
-    <img src="/brain.png" alt="">
-    <h4>Cool game</h4>
-    <p>Some cool cool game. Lets play!</p>
-  </li>
-  <li class="game">
-    <img src="/brain.png" alt="">
-    <h4>Cool game</h4>
-    <p>Some cool cool game. Lets play!</p>
-  </li>
-  <li class="game">
-    <img src="/brain.png" alt="">
-    <h4>Cool game</h4>
-    <p>Some cool cool game. Lets play!</p>
-  </li>
-  <li class="game">
-    <img src="/brain.png" alt="">
-    <h4>Cool game</h4>
-    <p>Some cool cool game. Lets play!</p>
-  </li>
+  <% if (user.status === 'Beginner') { %>
+    <li class="game">
+      <img src="/brain.png" alt="">
+      <h4>Cool game</h4>
+      <h5>Beginner</h5>
+      <p>Some cool cool game. Lets play!</p>
+    </li>
+    <li class="game">
+      <img src="/brain.png" alt="">
+      <h4>Cool game</h4>
+      <h5>Beginner</h5>
+      <p>Some cool cool game. Lets play!</p>
+    </li>
+  <% } else if (user.status === 'Average') { %>
+    <li class="game">
+      <img src="/brain.png" alt="">
+      <h4>Cool game</h4>
+      <h5>Average</h5>
+      <p>Some cool cool game. Lets play!</p>
+    </li>
+    <li class="game">
+      <img src="/brain.png" alt="">
+      <h4>Cool game</h4>
+      <h5>Average</h5>
+      <p>Some cool cool game. Lets play!</p>
+    </li>
+  <% } else { %>
+    <li class="game">
+      <img src="/brain.png" alt="">
+      <h4>Cool game</h4>
+      <h5>Proficient</h5>
+      <p>Some cool cool game. Lets play!</p>
+    </li>
+    <li class="game">
+      <img src="/brain.png" alt="">
+      <h4>Cool game</h4>
+      <h5>Proficient</h5>
+      <p>Some cool cool game. Lets play!</p>
+    </li>
+  <% } %>
 </ul>
 
 <%- include('partials/footer'); -%>
