@@ -1,51 +1,57 @@
 <%- include('partials/header'); -%>
 
 <ul class="games">
-  <li class="game">
-    <img src="/brain.png" alt="">
+  <li class="games__game">
+    <img src="/games-img-sequence.png" alt="">
     <h4>Circles sequence</h4>
     <h5>All levels</h5>
-    <p>Some cool cool game. Lets play!</p>
+    <p>Try to memorize the circles and recreate the sequence!</p>
     <a href="/game-sequence" class="btn btn-game">Play</a>
   </li>
   <% if (user.status === 'Beginner') { %>
-    <li class="game">
-      <img src="/brain.png" alt="">
-      <h4>Cool game</h4>
+    <li class="games__game">
+      <img src="/games-img-cards.png" alt="">
+      <h4>Flip the card</h4>
       <h5>Beginner</h5>
-      <p>Some cool cool game. Lets play!</p>
+      <p>Improve your memory by finding a pair for each card!</p>
+      <a href="/game-sequence" class="btn btn-game">Play</a>
     </li>
-    <li class="game">
-      <img src="/brain.png" alt="">
+    <li class="games__game">
+      <img src="/games-img-cool.png" alt="">
       <h4>Cool game</h4>
       <h5>Beginner</h5>
-      <p>Some cool cool game. Lets play!</p>
+      <p>Some cool cool game. <br> Lets play!</p>
+      <a href="/game-sequence" class="btn btn-game">Play</a>
     </li>
   <% } else if (user.status === 'Average') { %>
-    <li class="game">
-      <img src="/brain.png" alt="">
-      <h4>Cool game</h4>
+    <li class="games__game">
+      <img src="/games-img-cards.png" alt="">
+      <h4>Flip the card</h4>
       <h5>Average</h5>
-      <p>Some cool cool game. Lets play!</p>
+      <p>Improve your memory by finding a pair for each card!</p>
+      <a href="/game-sequence" class="btn btn-game">Play</a>
     </li>
-    <li class="game">
-      <img src="/brain.png" alt="">
+    <li class="games__game">
+      <img src="/games-img-cool.png" alt="">
       <h4>Cool game</h4>
       <h5>Average</h5>
-      <p>Some cool cool game. Lets play!</p>
+      <p>Some cool cool game. <br> Lets play!</p>
+      <a href="/game-sequence" class="btn btn-game">Play</a>
     </li>
   <% } else { %>
-    <li class="game">
-      <img src="/brain.png" alt="">
-      <h4>Cool game</h4>
+    <li class="games__game">
+      <img src="/games-img-cards.png" alt="">
+      <h4>Flip the card</h4>
       <h5>Proficient</h5>
-      <p>Some cool cool game. Lets play!</p>
+      <p>Improve your memory by finding a pair for each card!</p>
+      <a href="/game-sequence" class="btn btn-game">Play</a>
     </li>
-    <li class="game">
-      <img src="/brain.png" alt="">
+    <li class="games__game">
+      <img src="/games-img-cool.png" alt="">
       <h4>Cool game</h4>
       <h5>Proficient</h5>
-      <p>Some cool cool game. Lets play!</p>
+      <p>Some cool cool game. <br> Lets play!</p>
+      <a href="/game-sequence" class="btn btn-game">Play</a>
     </li>
   <% } %>
 </ul>

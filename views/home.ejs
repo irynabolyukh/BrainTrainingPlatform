@@ -12,13 +12,22 @@
   </div>
 </header>
 
-<h3>Top</h3>
-<div id="top">
-</div>
-<% if (user) { %>
-  <h3>My statistic</h3>
-  <div id="my-statistic">
+<div class="container">
+  <div class="top">
+    <h3>Top</h3>
+    <img src="/home-img-top.png" alt="">
+    <div class="top__info" id="top">
+    </div>
   </div>
-<% } %>
+  <% if (user) { %>
+  <div class="statistic">
+    <h3>My statistic</h3>
+    <img src="/home-img-statistic.png" alt="">
+    <div class="statistic__info" id="my-statistic">
+    </div>
+  </div>
+  <% } %>
+</div>
+
 <script src='/js/home.js'></script>
 <%- include('partials/footer'); -%>

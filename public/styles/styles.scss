@@ -29,21 +29,21 @@ nav{
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 100px;
-}
-nav ul{
-  display: flex;
-  align-items: center;
-}
-nav li{
-  margin-left: 20px;
-}
-nav li a{
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 0.8em;
-  display: block;
-  padding: 10px 16px;
-  letter-spacing: 2px;
+  ul{
+    display: flex;
+    align-items: center;
+  }
+  li{
+    margin-left: 20px;
+    a{
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 0.8em;
+      display: block;
+      padding: 10px 16px;
+      letter-spacing: 2px;
+    }
+  }
 }
 .btn{
   border-radius: 36px;
@@ -63,11 +63,6 @@ nav li a{
 p{
   margin-bottom: 15px;
 }
-form h2{
-  font-size: 2.4em;
-  font-weight: 900;
-  margin-bottom: 40px;
-}
 form{
   width: 360px;
   margin: 0 auto;
@@ -75,6 +70,12 @@ form{
   box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
   border-radius: 10px;
   background: white;
+
+  h2{
+    font-size: 2.4em;
+    font-weight: 900;
+    margin-bottom: 40px;
+  }
 }
 input{
   padding: 10px 12px;
@@ -108,28 +109,31 @@ button{
 header{
   display: flex;
   align-items: center;
-}
-header img{
-  width: 250px;
-  margin-right: 40px;
-}
-header h2{
-  font-size: 3em;
-  margin-bottom: 10px;
-}
-header h3{
-  font-size: 1.6em;
-  margin-bottom: 10px;
-  margin-left: 2px;
-  color: rgb(112, 192, 202);
-}
-header .btn{
-  margin-top: 20px;
-  padding: 12px 18px;
-  text-transform: uppercase;
-  font-weight: bold;
-  display: inline-block;
-  font-size: 0.8em;
+
+  img{
+    width: 350px;
+    margin-right: 40px;
+  }
+  h2{
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+
+  h3{
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    margin-left: 2px;
+    color: #70C0CA;
+  }
+
+  .btn{
+    margin-top: 20px;
+    padding: 12px 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 0.8em;
+  }
 }
 .games{
   display: grid;
@@ -138,19 +142,25 @@ header .btn{
   row-gap: 80px;
   margin: 80PX AUTO;
   max-width: 1200px;
+
+  &__game{
+    display: inline-block;
+    border-radius: 20px;
+    background: white;
+    position: relative;
+    text-align: center;
+    padding: 0 20px 30px 20px;
+    img{
+      width: 200px;
+      margin: -50px auto 10px;
+    }
+
+    h5{
+      margin: 3px auto;
+    }
+  }
 }
-.game{
-  display: inline-block;
-  border-radius: 20px;
-  background: white;
-  position: relative;
-  text-align: center;
-  padding: 0 20px 30px 20px
-}
-.game img{
-  width: 100px;
-  margin: -30px auto 20px;
-}
+
 footer{
   text-align: center;
   margin-top: 100px;
@@ -164,4 +174,18 @@ footer{
 }
 a{
   cursor: pointer;
+}
+
+.statistic {
+  img {
+    max-width: 300px;
+    width: 100%;
+  }
+}
+
+.top {
+  img {
+    max-width: 300px;
+    width: 100%;
+  }
 }
