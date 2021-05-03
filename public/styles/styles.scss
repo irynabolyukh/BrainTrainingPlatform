@@ -1,25 +1,23 @@
-// @import '_colors';
-// @import '_layout';
-// @import '_forms';
-
-
 /* google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 body{
   margin: 20px 40px;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-  background: #fafafa;
+  font-size: 1.4rem;
+  letter-spacing: .8px;
+  // background: #fafafa;
+  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+}
+hr{
+  margin: 35px 0;
+  border: 5px solid #55939b;
+  background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
 }
 h1, h2, h3, h4, ul, li, a, p, input, label, button, div, footer{
   margin: 0;
   padding: 0;
   font-family: 'Quicksand', sans-serif;
   color: #b95eb9;
-}
-ul{
-  list-style-type: none;
 }
 a{
   text-decoration: none;
@@ -28,10 +26,11 @@ nav{
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 100px;
+  margin-bottom: 70px;
   ul{
     display: flex;
     align-items: center;
+    list-style-type: none;
   }
   li{
     margin-left: 20px;
@@ -45,13 +44,13 @@ nav{
     }
   }
 }
-.btn{
+.btn {
   border-radius: 36px;
   background: #FEE996;
   border: 1px solid black;
   text-align: center;
 
-  &-game{
+  &-game {
     padding: 3px 10px;
     font-weight: 600;
   }
@@ -60,10 +59,10 @@ nav{
     background: #f1b1ee;
   }
 }
-p{
+p {
   margin-bottom: 15px;
 }
-form{
+form {
   width: 360px;
   margin: 0 auto;
   padding: 30px;
@@ -123,7 +122,7 @@ header{
     font-size: 1.6em;
     margin-bottom: 10px;
     margin-left: 2px;
-    color: #70C0CA;
+    color: #55939b;
   }
 
   .btn{
@@ -140,7 +139,7 @@ header{
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 30px;
   row-gap: 80px;
-  margin: 80PX AUTO;
+  margin: 120px auto;
   max-width: 1200px;
 
   &__game{
@@ -150,6 +149,7 @@ header{
     position: relative;
     text-align: center;
     padding: 0 20px 30px 20px;
+    
     img{
       width: 200px;
       margin: -50px auto 10px;
@@ -164,7 +164,8 @@ header{
 footer{
   text-align: center;
   margin-top: 100px;
-  color: #aaa;
+  margin-bottom: 20px;
+  color: rgb(177, 166, 166);
   p {
     margin: 0 auto;
   }
@@ -181,11 +182,47 @@ a{
     max-width: 300px;
     width: 100%;
   }
+
+  &__info{
+    text-align: left;
+    padding: 30px;
+  }
 }
 
 .top {
   img {
     max-width: 300px;
     width: 100%;
+  }
+
+  &__info{
+    text-align: left;
+    padding: 30px;
+  }
+}
+
+.row {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.news {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  img {
+    max-width: 200px;
+    width: 100%;
+  }
+  video {
+    max-width: 800px;
+    width: 100%;
+    border: 5px solid #55939b;
   }
 }
