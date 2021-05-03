@@ -110,14 +110,14 @@ function animate() {
     // якщо гру було виграно, то відправляємо формочку для оновлення результатів користувача
     if(hasWon){
         scored = (circlesAmount.value * 10) / timeLimit.value;
-        console.log(scored);
+        let roundedScore = Math.round(scored);
         if(alert('You have scored!')){}
         else {
             let xhr = new XMLHttpRequest();
             xhr.open("POST", "/update-score", true);
             xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.send(JSON.stringify({
-                score: scored
+                score: roundedScore
             }));
             // почекаємо, щоб оновився рахунок
             setTimeout(() => {
