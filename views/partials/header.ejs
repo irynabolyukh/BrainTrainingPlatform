@@ -16,8 +16,19 @@
         <li><b><%= user.status %>:</b> <%= user.score %> cls</li>
         <li><a href="/logout" class="btn">Log out</a></li>
       <% } else { %>
-        <li><a href="/login" class="btn">Log in</a></li>
-        <li><a href="/signup" class="btn">Sign up</a></li>
+        <li id="login"><a href="/login" class="btn">Log in</a></li>
+        <li id="signup"><a href="/signup" class="btn">Sign up</a></li>
       <% } %>
     </ul>
   </nav>
+
+<script>
+    let url = window.location.href;
+    let host = window.location.host;
+    if(url.indexOf('http://' + host + '/signup') != -1) {
+        $( "#signup" ).remove();
+    }
+    if(url.indexOf('http://' + host + '/login') != -1) {
+        $( "#login" ).remove();
+    }
+</script>
