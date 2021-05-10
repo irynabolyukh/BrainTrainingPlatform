@@ -43,7 +43,7 @@ app.use((req, res, next) => {
     }
     next();
 });
-app.get('*', checkUser);
+app.get('*', checkUser); //to set user for ejs-templates
 app.get('/', (req, res) => res.render('home'));
 app.get('/test', requireAuth, (req, res) => res.render('test'));
 app.use(authRoutes);

@@ -76,7 +76,7 @@ function makeCircle(x, y, identifier) {
     }
 }
 
-//розприділяємо кружечку по канвасу так, щоб вони не накладались одне на одного
+//розприділяємо кружечки по канвасу так, щоб вони не накладались одне на одного
 function init() {
     circleArray = [];
 
@@ -111,7 +111,7 @@ function animate() {
     if(hasWon){
         scored = (circlesAmount.value * 10) / timeLimit.value;
         let roundedScore = Math.round(scored);
-        if(alert('You have scored!')){}
+        if(alert('You have scored '+ roundedScore)){}
         else {
             let xhr = new XMLHttpRequest();
             xhr.open("POST", "/update-score", true);

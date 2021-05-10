@@ -47,4 +47,20 @@ p {
 .btn {
   margin-top: 10px;
 }
+
+.back {
+  padding: 5px 10px;
+  font-weight: 600;
+  margin-left: 20px;
+  -webkit-transition: margin-left 0.3s ease-in;
+  transition: margin-left 0.3s ease-in;
+}
+
+.back i {
+  padding-right: 5px;
+}
+
+.back:hover {
+  margin-left: 5px;
+}
 /*# sourceMappingURL=game-sequence.css.map */
