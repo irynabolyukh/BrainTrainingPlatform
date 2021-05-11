@@ -1,5 +1,6 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
+const Game = require("../models/Game");
 
 module.exports.scoreUpdate = (req, res, next) =>{
     const {score} = req.body;
@@ -20,5 +21,29 @@ module.exports.scoreUpdate = (req, res, next) =>{
                 next();
             }
         });
+    }
+}
+
+module.exports.createGame = async (req, res) =>{
+    const {title, description, level, imageLink, pageLink} = req.body;
+
+    try {
+        const game = await Game.create({title, description, level, imageLink, pageLink});
+        res.status(201).json({game: game._id});
+    }
+    catch (err){
+        res.status(400).json({error: err});
+    }
+}
+
+module.exports.updateGame = async (req, res) =>{
+    const {gameId, title, description, level, imageLink, pageLink} = req.body;
+
+    try {
+        await Game.updateOne({ _id: gameId },{title, description, level, imageLink, pageLink});
+        res.status(201).json({game: gameId});
+    }
+    catch (err){
+        res.status(400).json({error: err});
     }
 }

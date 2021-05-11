@@ -55,5 +55,11 @@
     </li>
   <% } %>
 </ul>
-
+<% if (user) { %>
+    <% if (user.isManager) { %>
+        <div class="container">
+            <a href="/add-game" class="btn btn-game">Add game</a>
+        </div>
+    <% } %>
+<% } %>
 <%- include('partials/footer'); -%>
