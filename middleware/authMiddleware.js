@@ -28,14 +28,15 @@ const requireAuth = (req, res, next) => {
 const checkUserAndGetLocals = async (req, res, next) => {
   const token = req.cookies.jwt;
   res.locals.post = await Post.findOne({});
+  res.locals.manager = false;
+  res.locals.developer = false;
+  res.locals.games = null;
 
   if (token){
     jwt.verify(token, process.env.JWT_SECRET, async (err, decodedToken) => {
       if (err) {
         console.log(err.message);
         res.locals.user = null;
-        res.locals.games = null;
-        res.locals.manager = false;
         next();
       } 
       else {
@@ -46,8 +47,8 @@ const checkUserAndGetLocals = async (req, res, next) => {
         if (user.role === "manager") {
           res.locals.manager = true;
         }
-        else{
-          res.locals.manager = false;
+        if (user.role === "developer") {
+          res.locals.developer = true;
         }
         res.locals.games = await Game.find({});
         next();
@@ -56,8 +57,6 @@ const checkUserAndGetLocals = async (req, res, next) => {
   } 
   else {
     res.locals.user = null;
-    res.locals.games = null;
-    res.locals.manager = false;
     next();
   }
 }

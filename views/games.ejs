@@ -3,7 +3,7 @@
 <ul class="games">
     <% if(games.length > 0) { %>
         <% for (let game of games) { %>
-            <% if(user && (!manager) && (game.level === user.status || game.level === "All levels")) { %>
+            <% if(user && (!developer) && (game.level === user.status || game.level === "All levels")) { %>
                 <li class="games__game">
                     <img src="/images<%= game.imageLink %>" alt="">
                     <h4><%= game.title %></h4>
@@ -12,7 +12,7 @@
                     <a href="<%= game.pageLink %>" class="btn btn-game">Play</a>
                 </li>
             <% } %>
-                <% if(manager) { %>
+                <% if(developer) { %>
                     <li class="games__game">
                         <img src="/images<%= game.imageLink %>" alt="">
                         <h4><%= game.title %></h4>
@@ -29,7 +29,7 @@
     <% } %>
 </ul>
 <% if (user) { %>
-    <% if (manager) { %>
+    <% if (developer) { %>
         <div class="container">
             <a href="/add-game" class="btn btn-game">Add game</a>
         </div>

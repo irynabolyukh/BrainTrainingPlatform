@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const { isEmail } = require('validator');
 const bcrypt = require('bcrypt');
 const roles = {
-  Manager: 'manager',
+  Manager: 'manager', //manages content, edits posts
+  Developer: 'developer', //manages games, can add new game, edits games
   User: 'user'
 };
 
@@ -22,7 +23,7 @@ const userSchema = new mongoose.Schema({
   role: {
     type: String,
     required: true,
-    default: roles.User
+    default: roles.Developer
   },
   score: {
     type: Number,
