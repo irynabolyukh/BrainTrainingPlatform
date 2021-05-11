@@ -3,26 +3,33 @@
 <ul class="games">
     <% if(games.length > 0) { %>
         <% for (let game of games) { %>
-            <% if(user && (game.level === user.status || game.level === "All levels")) { %>
+            <% if(user && (!manager) && (game.level === user.status || game.level === "All levels")) { %>
                 <li class="games__game">
                     <img src="<%= game.imageLink %>" alt="">
                     <h4><%= game.title %></h4>
                     <h5><%= game.level %></h5>
                     <p><%= game.description %></p>
                     <a href="<%= game.pageLink %>" class="btn btn-game">Play</a>
-                    <% if (user.isManager) { %>
+                </li>
+            <% } %>
+                <% if(manager) { %>
+                    <li class="games__game">
+                        <img src="<%= game.imageLink %>" alt="">
+                        <h4><%= game.title %></h4>
+                        <h5><%= game.level %></h5>
+                        <p><%= game.description %></p>
+                        <a href="<%= game.pageLink %>" class="btn btn-game">Play</a>
                         <a href="/update-game/<%= game._id %>" class="btn btn-game"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                         <form class="games__delete" action="/delete-game/<%= game._id %>" method="POST">
                             <button type="submit" class="btn btn-game"><i class="fa fa-trash" aria-hidden="true"></i></button>
                         </form>
-                    <% } %>
-                </li>
-            <% } %>
+                    </li>
+                <% } %>
         <% } %>
     <% } %>
 </ul>
 <% if (user) { %>
-    <% if (user.isManager) { %>
+    <% if (manager) { %>
         <div class="container">
             <a href="/add-game" class="btn btn-game">Add game</a>
         </div>

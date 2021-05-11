@@ -45,10 +45,10 @@
     </video>
   <% } %>
 </div>
-<% if (user) { %>
-  <% if (user.isManager) { %>
+<% if (user && post) { %>
+  <% if (manager) { %>
     <div class="container">
-        <a href="/update-post" class="btn btn-game">Update Post</a>
+        <a href="/update-post/<%= post._id %>" class="btn btn-game">Update Post</a>
     </div>
   <% } %>
 <% } %>

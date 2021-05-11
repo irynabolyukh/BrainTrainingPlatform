@@ -8,7 +8,7 @@ const gamesRoutes = require('./routes/gamesRoutes');
 const statisticsRoutes = require('./routes/statisticsRoutes');
 const postRoutes = require('./routes/postRoutes');
 const cookieParser = require('cookie-parser');
-const { requireAuth, checkLocals } = require('./middleware/authMiddleware');
+const { requireAuth, checkUserAndGetLocals } = require('./middleware/authMiddleware');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -48,7 +48,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('*', checkLocals); //to set user for ejs-templates
+app.get('*', checkUserAndGetLocals); //to set user for ejs-templates
 app.get('/', (req, res) => res.render('home'));
 app.get('/test', requireAuth, (req, res) => res.render('test'));
 app.use(postRoutes);
