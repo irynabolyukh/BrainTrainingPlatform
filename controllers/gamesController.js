@@ -1,7 +1,7 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
-module.exports.update_score = (req, res, next) =>{
+module.exports.scoreUpdate = (req, res, next) =>{
     const {score} = req.body;
     const token = req.cookies.jwt;
 

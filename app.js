@@ -24,10 +24,13 @@ app.use(morgan('dev'));
 app.set('view engine', 'ejs');
 
 // database connection
-const dbURI = 'mongodb+srv://brain-training:' + process.env.MONGO_ATLAS_PW + '@braintraining.p4zyl.mongodb.net/' + process.env.MONGO_ATLAS_NM;
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true })
-  .then((result) => app.listen(PORT))
-  .catch((err) => console.log(err));
+const dbURI = 'mongodb+srv://brain-training:' + process.env.MONGO_ATLAS_PW
+              + '@braintraining.p4zyl.mongodb.net/' + process.env.MONGO_ATLAS_NM;
+mongoose.connect(dbURI, { useNewUrlParser: true,
+                                 useUnifiedTopology: true,
+                                 useCreateIndex:true })
+        .then((result) => app.listen(PORT))
+        .catch((err) => console.log(err));
 
 
 app.use(bodyParser.urlencoded({extended:false}));

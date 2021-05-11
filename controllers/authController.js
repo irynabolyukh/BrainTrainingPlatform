@@ -2,7 +2,7 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const maxAge = 3 * 60 * 60; //3 hours in seconds
 
-const handleErrors = (err) => {
+const errorChecking = (err) => {
   console.log(err.message, err.code);
   let errors = { email: '', password: ''};
 
@@ -36,15 +36,15 @@ const createJWT = (id) => {
   });
 }
 
-module.exports.signup_get = (req,res) =>{
+module.exports.getSignup = (req, res) =>{
   res.render('signup');
 }
 
-module.exports.login_get = (req,res) =>{
+module.exports.getLogin = (req, res) =>{
   res.render('login');
 }
 
-module.exports.signup_post = async (req,res) =>{
+module.exports.postSignup = async (req, res) =>{
   const {email, password} = req.body;
 
   try {
@@ -54,12 +54,12 @@ module.exports.signup_post = async (req,res) =>{
     res.status(201).json({user: user._id});
   }
   catch (err){
-    const errors = handleErrors(err);
+    const errors = errorChecking(err);
     res.status(400).json({errors});
   }
 }
 
-module.exports.login_post = async (req,res) =>{
+module.exports.postLogin = async (req, res) =>{
   const {email, password} = req.body;
   
   try{
@@ -69,12 +69,12 @@ module.exports.login_post = async (req,res) =>{
     res.status(200).json({user: user._id});
   }
   catch(err){
-    const errors = handleErrors(err);
+    const errors = errorChecking(err);
     res.status(400).json({errors});
   }
 }
 
-module.exports.logout_get = (req, res) => {
+module.exports.logout = (req, res) => {
   res.cookie('jwt', '', {httpOnly: true, maxAge: 1});
   res.redirect('/');
 }

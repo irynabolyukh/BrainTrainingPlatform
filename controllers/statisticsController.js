@@ -1,7 +1,7 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
-module.exports.my_statistic = (req, res, next) =>{
+module.exports.statistic = (req, res, next) =>{
     const token = req.cookies.jwt;
 
     // getting user from current session and displaying User statistic
