@@ -2,7 +2,7 @@
 
 <header>
   <div class="brain">
-    <img src="/brain.png" alt="">
+    <img src="/images/brain.png" alt="">
   </div>
   <div class="headings">
     <h2>Cool Games</h2>
@@ -16,14 +16,14 @@
 <div class="container row">
   <div class="top col">
     <h3>Top</h3>
-    <img src="/home-img-top.png" alt="">
+    <img src="/images/home-img-top.png" alt="">
     <div class="top__info" id="top">
     </div>
   </div>
   <% if (user) { %>
   <div class="statistic col">
     <h3>My statistic</h3>
-    <img src="/home-img-statistic.png" alt="">
+    <img src="/images/home-img-statistic.png" alt="">
     <div class="statistic__info" id="my-statistic">
     </div>
   </div>
@@ -35,12 +35,12 @@
 <div class="container news">
   <% if (post) { %>
     <h3> <%= post.header %></h3>
-    <img src="<%= post.imageLink %>" alt="">
+    <img src="/images<%= post.imageLink %>" alt="">
     <div class="news__info">
       <%= post.description %>
     </div>
     <video controls>
-      <source src="<%= post.videoLink %>" type="video/mp4">
+      <source src="/videos<%= post.videoLink %>" type="video/mp4">
       Sorry, your browser does not support the video tag.
     </video>
   <% } %>

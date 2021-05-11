@@ -5,7 +5,7 @@
         <% for (let game of games) { %>
             <% if(user && (!manager) && (game.level === user.status || game.level === "All levels")) { %>
                 <li class="games__game">
-                    <img src="<%= game.imageLink %>" alt="">
+                    <img src="/images<%= game.imageLink %>" alt="">
                     <h4><%= game.title %></h4>
                     <h5><%= game.level %></h5>
                     <p><%= game.description %></p>
@@ -14,7 +14,7 @@
             <% } %>
                 <% if(manager) { %>
                     <li class="games__game">
-                        <img src="<%= game.imageLink %>" alt="">
+                        <img src="/images<%= game.imageLink %>" alt="">
                         <h4><%= game.title %></h4>
                         <h5><%= game.level %></h5>
                         <p><%= game.description %></p>
