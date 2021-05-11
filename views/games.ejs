@@ -1,59 +1,25 @@
 <%- include('partials/header'); -%>
 
 <ul class="games">
-  <li class="games__game">
-    <img src="/games-img-sequence.png" alt="">
-    <h4>Circles sequence</h4>
-    <h5>All levels</h5>
-    <p>Try to memorize the circles and recreate the sequence!</p>
-    <a href="/game-sequence" class="btn btn-game">Play</a>
-  </li>
-  <% if (user.status === 'Beginner') { %>
-    <li class="games__game">
-      <img src="/games-img-cards.png" alt="">
-      <h4>Flip the card</h4>
-      <h5>Beginner</h5>
-      <p>Improve your memory by finding a pair for each card!</p>
-      <a href="/game-sequence" class="btn btn-game">Play</a>
-    </li>
-    <li class="games__game">
-      <img src="/games-img-cool.png" alt="">
-      <h4>Color check</h4>
-      <h5>Beginner</h5>
-      <p>Is the block the same color as it says? <br> Lets play!</p>
-      <a href="/game-sequence" class="btn btn-game">Play</a>
-    </li>
-  <% } else if (user.status === 'Average') { %>
-    <li class="games__game">
-      <img src="/games-img-cards.png" alt="">
-      <h4>Flip the card</h4>
-      <h5>Average</h5>
-      <p>Improve your memory by finding a pair for each card!</p>
-      <a href="/game-sequence" class="btn btn-game">Play</a>
-    </li>
-    <li class="games__game">
-      <img src="/games-img-cool.png" alt="">
-        <h4>Color check</h4>
-        <h5>Average</h5>
-        <p>Is the block the same color as it says? <br> Lets play!</p>
-      <a href="/game-sequence" class="btn btn-game">Play</a>
-    </li>
-  <% } else { %>
-    <li class="games__game">
-      <img src="/games-img-cards.png" alt="">
-      <h4>Flip the card</h4>
-      <h5>Proficient</h5>
-      <p>Improve your memory by finding a pair for each card!</p>
-      <a href="/game-sequence" class="btn btn-game">Play</a>
-    </li>
-    <li class="games__game">
-      <img src="/games-img-cool.png" alt="">
-        <h4>Color check</h4>
-        <h5>Proficient</h5>
-        <p>Is the block the same color as it says? <br> Lets play!</p>
-      <a href="/game-sequence" class="btn btn-game">Play</a>
-    </li>
-  <% } %>
+    <% if(games.length > 0) { %>
+        <% for (let game of games) { %>
+            <% if(user && (game.level === user.status || game.level === "All levels")) { %>
+                <li class="games__game">
+                    <img src="<%= game.imageLink %>" alt="">
+                    <h4><%= game.title %></h4>
+                    <h5><%= game.level %></h5>
+                    <p><%= game.description %></p>
+                    <a href="<%= game.pageLink %>" class="btn btn-game">Play</a>
+                    <% if (user.isManager) { %>
+                        <a href="/update-game/<%= game._id %>" class="btn btn-game"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        <form class="games__delete" action="/delete-game/<%= game._id %>" method="POST">
+                            <button type="submit" class="btn btn-game"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        </form>
+                    <% } %>
+                </li>
+            <% } %>
+        <% } %>
+    <% } %>
 </ul>
 <% if (user) { %>
     <% if (user.isManager) { %>

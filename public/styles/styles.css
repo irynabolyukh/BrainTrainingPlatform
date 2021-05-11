@@ -183,6 +183,17 @@ header .btn {
   max-width: 1200px;
 }
 
+.games__delete {
+  display: inline;
+  margin: 0 auto;
+  width: 40px;
+  padding: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-radius: 0;
+  background: white;
+}
+
 .games__game {
   display: inline-block;
   border-radius: 20px;

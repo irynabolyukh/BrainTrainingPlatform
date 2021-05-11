@@ -147,6 +147,16 @@ header{
   margin: 120px auto;
   max-width: 1200px;
 
+  &__delete {
+    display: inline;
+    margin: 0 auto;
+    width: 40px;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+    background: white;
+  }
+
   &__game{
     display: inline-block;
     border-radius: 20px;

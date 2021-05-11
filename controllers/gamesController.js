@@ -47,3 +47,27 @@ module.exports.updateGame = async (req, res) =>{
         res.status(400).json({error: err});
     }
 }
+
+module.exports.deleteGame = async (req, res) =>{
+    const gameId = req.params.gameId;
+
+    try {
+        await Game.remove({ _id: gameId }).exec();
+        res.status(201).json('/games');
+    }
+    catch (err){
+        res.status(400).redirect('/games');
+    }
+}
+
+module.exports.getGame = async (req, res) =>{
+    const gameId = req.params.gameId;
+
+    try {
+        let game = await Game.findOne({ _id: gameId });
+        res.status(201).json(game);
+    }
+    catch (err){
+        res.status(400).json({error : err});
+    }
+}
