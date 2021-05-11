@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const Post = require("../models/Post");
 
 const requireAuth = (req, res, next) => {
   const token = req.cookies.jwt;
@@ -22,8 +23,8 @@ const requireAuth = (req, res, next) => {
 }
 
 
-//check current user
-const checkUser = (req, res, next) => {
+//check current user and post content
+const checkLocals = (req, res, next) => {
   const token = req.cookies.jwt;
 
   if (token){
@@ -35,9 +36,9 @@ const checkUser = (req, res, next) => {
       } 
       else {
         console.log(decodedToken);
-        let user = await User.findById(decodedToken.id);
         //res.locals is gonna be available in the views
-        res.locals.user = user;
+        res.locals.user = await User.findById(decodedToken.id);
+        res.locals.post = await Post.findOne({});
         next();
       }
     });
@@ -48,4 +49,4 @@ const checkUser = (req, res, next) => {
   }
 }
 
-module.exports = { requireAuth, checkUser };
+module.exports = { requireAuth, checkLocals };

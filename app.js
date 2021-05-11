@@ -7,9 +7,8 @@ const authRoutes = require('./routes/authRoutes');
 const gamesRoutes = require('./routes/gamesRoutes');
 const statisticsRoutes = require('./routes/statisticsRoutes');
 const postRoutes = require('./routes/postRoutes');
-const postController = require('./controllers/postController');
 const cookieParser = require('cookie-parser');
-const { requireAuth, checkUser } = require('./middleware/authMiddleware');
+const { requireAuth, checkLocals } = require('./middleware/authMiddleware');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -48,11 +47,10 @@ app.use((req, res, next) => {
     }
     next();
 });
-app.get('*', checkUser); //to set user for ejs-templates
+
+app.get('*', checkLocals); //to set user for ejs-templates
 app.get('/', (req, res) => res.render('home'));
 app.get('/test', requireAuth, (req, res) => res.render('test'));
-// app.get('/update-post', requireAuth, (req, res) => res.render('update-post'));
-// app.post('/update-post', requireAuth, postController.updatePost);
 app.use(postRoutes);
 app.use(authRoutes);
 app.use(gamesRoutes);
