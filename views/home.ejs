@@ -42,10 +42,12 @@
     Sorry, your browser does not support the video tag.
   </video>
 </div>
-<% if (user.isManager) { %>
-<div class="container">
-    <a href="/update-post" class="btn btn-game">Update Post</a>
-</div>
+<% if (user) { %>
+  <% if (user.isManager) { %>
+    <div class="container">
+        <a href="/update-post" class="btn btn-game">Update Post</a>
+    </div>
+  <% } %>
 <% } %>
 
 <hr>
