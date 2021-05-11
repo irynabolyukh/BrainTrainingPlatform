@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 const { isEmail } = require('validator');
 const bcrypt = require('bcrypt');
+const roles = {
+  Manager: 'manager',
+  User: 'user'
+};
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -14,6 +18,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please enter a password.'],
     minLength: [8, 'Password length should not be less than 8.']
+  },
+  role: {
+    type: String,
+    required: true,
+    default: roles.Manager
   },
   score: {
     type: Number,
@@ -50,6 +59,11 @@ userSchema.statics.login = async function(email, password){
 // method to get User name
 userSchema.virtual('name').get(function() {
   return this.email.substring(0, this.email.lastIndexOf("@"));
+});
+
+// method to check if Manager
+userSchema.virtual('isManager').get(function() {
+  return (this.role === roles.Manager);
 });
 
 // method to get User status
