@@ -53,7 +53,7 @@ module.exports.deleteGame = async (req, res) =>{
 
     try {
         await Game.remove({ _id: gameId }).exec();
-        res.status(201).json('/games');
+        res.status(201).redirect('/games');
     }
     catch (err){
         res.status(400).redirect('/games');
