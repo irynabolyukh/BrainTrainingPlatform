@@ -79,6 +79,20 @@ nav li a {
   background: #f1b1ee;
 }
 
+.btn__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.btn__container-filter {
+  margin-right: 5px;
+}
+
 p {
   margin-bottom: 15px;
 }
@@ -196,7 +210,7 @@ header .btn {
 }
 
 .games__game {
-  display: inline-block;
+  display: none;
   border-radius: 20px;
   background: white;
   position: relative;
@@ -213,6 +227,10 @@ header .btn {
   margin: 7px auto;
   color: #884288;
   font-weight: 700;
+}
+
+.show {
+  display: inline-block;
 }
 
 footer {
@@ -323,5 +341,20 @@ textarea, select {
 
 .back:hover {
   margin-left: 5px;
+}
+
+.active {
+  background: #f1b1ee;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.searchInput {
+  max-width: 700px;
+  width: 100%;
 }
 /*# sourceMappingURL=styles.css.map */

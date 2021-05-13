@@ -59,6 +59,15 @@ nav{
   &:hover {
     background: #f1b1ee;
   }
+
+  &__container{
+    display: flex;
+    flex-direction: row;
+
+    &-filter {
+      margin-right: 5px;
+    }
+  }
 }
 p {
   margin-bottom: 15px;
@@ -105,6 +114,7 @@ button{
     background: #f1b1ee;
   }
 }
+
 .error{
   color: #ff0099;
   margin: 10px 2px;
@@ -159,7 +169,7 @@ header{
   }
 
   &__game{
-    display: inline-block;
+    display: none;
     border-radius: 20px;
     background: white;
     position: relative;
@@ -179,7 +189,9 @@ header{
 
   }
 }
-
+.show {
+  display: inline-block;
+}
 footer{
   text-align: center;
   margin-top: 100px;
@@ -270,4 +282,19 @@ textarea, select {
   &:hover {
     margin-left: 5px;
   }
+}
+
+.active {
+  background: #f1b1ee;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.searchInput {
+  max-width: 700px;
+  width: 100%;
 }

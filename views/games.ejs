@@ -1,10 +1,31 @@
 <%- include('partials/header'); -%>
-
-<ul class="games">
+<div class="container">
+    <label for="searchInput"><b>Назва гри:</b>
+        <input id="searchInput" name="searchInput" class="searchInput" type="text" placeholder="Пошук...">
+    </label>
+    <div id="btn__container" class="btn__container">
+        <button class="btn btn__container-filter active" onclick="filter('Усі')">Усі</button>
+        <% if(user && (!developer) && ('Початківець' === user.status)) { %>
+            <button class="btn btn__container-filter" onclick="filter('Початківець')">Початківець</button>
+        <% } %>
+        <% if(user && (!developer) && ('Середній' === user.status)) { %>
+            <button class="btn btn__container-filter" onclick="filter('Середній')">Середній</button>
+        <% } %>
+        <% if(user && (!developer) && ('Досвідчений' === user.status)) { %>
+            <button class="btn btn__container-filter" onclick="filter('Досвідчений')">Досвідчений</button>
+        <% } %>
+        <% if(developer) { %>
+            <button class="btn btn__container-filter" onclick="filter('Початківець')">Початківець</button>
+            <button class="btn btn__container-filter" onclick="filter('Середній')">Середній</button>
+            <button class="btn btn__container-filter" onclick="filter('Досвідчений')">Досвідчений</button>
+        <% } %>
+    </div>
+</div>
+<ul class="games" id="games">
     <% if(games.length > 0) { %>
         <% for (let game of games) { %>
-            <% if(user && (!developer) && (game.level === user.status || game.level === "All levels")) { %>
-                <li class="games__game">
+            <% if(user && (!developer) && (game.level === user.status || game.level === "Усі рівні")) { %>
+                <li id="<%= game.title %>" class="games__game <%= game.level %>">
                     <img src="/images<%= game.imageLink %>" alt="">
                     <h4><%= game.title %></h4>
                     <h5><%= game.level %></h5>
@@ -13,7 +34,7 @@
                 </li>
             <% } %>
                 <% if(developer) { %>
-                    <li class="games__game">
+                    <li class="games__game <%= game.level %>" id="<%= game.title %>">
                         <img src="/images<%= game.imageLink %>" alt="">
                         <h4><%= game.title %></h4>
                         <h5><%= game.level %></h5>
@@ -35,4 +56,60 @@
         </div>
     <% } %>
 <% } %>
+
+<script>
+    filter("Усі");
+
+    function filter(classN) {
+        let x, i;
+        x = document.getElementsByClassName("games__game");
+        if (classN === "Усі"){  classN = ""; }
+        for (i = 0; i < x.length; i++) {
+            removeClass(x[i], "show");
+            if (x[i].className.indexOf(classN) > -1) {
+                addClass(x[i], "show");
+            }
+        }
+    }
+
+    function addClass(element, name) {
+        let classes = element.className.split(" ");
+        let names = name.split(" ");
+        for (let i = 0; i < names.length; i++) {
+            if (classes.indexOf(names[i]) === -1) {
+                element.className += " " + names[i];
+            }
+        }
+    }
+
+    function removeClass(element, name) {
+        let classes = element.className.split(" ");
+        let names = name.split(" ");
+        for (let i = 0; i < names.length; i++) {
+            while (classes.indexOf(names[i]) > -1) {
+                classes.splice(classes.indexOf(names[i]), 1);
+            }
+        }
+        element.className = classes.join(" ");
+    }
+
+    let btn__container = document.getElementById("btn__container");
+    let all_btn = btn__container.getElementsByClassName("btn__container-filter");
+    for (let i = 0; i < all_btn.length; i++) {
+        all_btn[i].addEventListener("click", function(){
+            let current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+
+    $(document).ready(function(){
+        $("#searchInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#games li").filter(function() {
+                $(this).toggle($(this).attr('id').toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
 <%- include('partials/footer'); -%>
