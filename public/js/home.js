@@ -15,9 +15,9 @@ function fetchdata(){
 function setStatistic(data) {
     let $statDiv = $("#my-statistic");
     $statDiv.empty();
-    $statDiv.append("<p>Per Day: " + data.scorePerDay + "<p>" +
-        "<p>Per Month: " + data.scorePerMonth + "<p>" +
-        "<p>Per Year: " + data.scorePerYear + "<p>"
+    $statDiv.append("<p>У день: " + data.scorePerDay + "<p>" +
+        "<p>У місяць: " + data.scorePerMonth + "<p>" +
+        "<p>У рік: " + data.scorePerYear + "<p>"
     );
 }
 
