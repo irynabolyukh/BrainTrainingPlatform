@@ -12,9 +12,17 @@ h1 {
 }
 
 .btn {
-  max-width: 60px;
+  max-width: 70px;
   width: 100%;
   margin: 10px auto;
+
+  &-check{
+    max-width: 180px;
+  }
+
+  &-start{
+    max-width: 120px;
+  }
 }
 
 input {

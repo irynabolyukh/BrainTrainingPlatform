@@ -5,9 +5,9 @@
     <img src="/images/brain.png" alt="">
   </div>
   <div class="headings">
-    <h2>Cool Games</h2>
-    <h3>for cognitive training</h3>
-    <a href="/games" class="btn">Play Games</a>
+    <h2>Кльові ігри</h2>
+    <h3>для когнітивних тренувань</h3>
+    <a href="/games" class="btn">Грати</a>
   </div>
 </header>
 
@@ -15,14 +15,14 @@
 
 <div class="container row">
   <div class="top col">
-    <h3>Top</h3>
+    <h3>Топ-3</h3>
     <img src="/images/home-img-top.png" alt="">
     <div class="top__info" id="top">
     </div>
   </div>
   <% if (user) { %>
   <div class="statistic col">
-    <h3>My statistic</h3>
+    <h3>Моя статистика</h3>
     <img src="/images/home-img-statistic.png" alt="">
     <div class="statistic__info" id="my-statistic">
     </div>
@@ -41,14 +41,14 @@
     </div>
     <video controls>
       <source src="/videos<%= post.videoLink %>" type="video/mp4">
-      Sorry, your browser does not support the video tag.
+      Пробачте, Ваш браузер не підтримує це відео.
     </video>
   <% } %>
 </div>
 <% if (user && post) { %>
   <% if (manager) { %>
     <div class="container">
-        <a href="/update-post/<%= post._id %>" class="btn btn-game">Update Post</a>
+        <a href="/update-post/<%= post._id %>" class="btn btn-game">Оновити пост</a>
     </div>
   <% } %>
 <% } %>

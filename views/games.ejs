@@ -9,7 +9,7 @@
                     <h4><%= game.title %></h4>
                     <h5><%= game.level %></h5>
                     <p><%= game.description %></p>
-                    <a href="<%= game.pageLink %>" class="btn btn-game">Play</a>
+                    <a href="<%= game.pageLink %>" class="btn btn-game">Грати</a>
                 </li>
             <% } %>
                 <% if(developer) { %>
@@ -18,7 +18,7 @@
                         <h4><%= game.title %></h4>
                         <h5><%= game.level %></h5>
                         <p><%= game.description %></p>
-                        <a href="<%= game.pageLink %>" class="btn btn-game">Play</a>
+                        <a href="<%= game.pageLink %>" class="btn btn-game">Грати</a>
                         <a href="/update-game/<%= game._id %>" class="btn btn-game"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                         <form class="games__delete" action="/delete-game/<%= game._id %>" method="POST">
                             <button type="submit" class="btn btn-game"><i class="fa fa-trash" aria-hidden="true"></i></button>
@@ -31,7 +31,7 @@
 <% if (user) { %>
     <% if (developer) { %>
         <div class="container">
-            <a href="/add-game" class="btn btn-game">Add game</a>
+            <a href="/add-game" class="btn btn-game"><i class="fa fa-plus-circle" aria-hidden="true"></i> Додати гру</a>
         </div>
     <% } %>
 <% } %>

@@ -6,70 +6,71 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
 </head>
 <div class="container info">
-    <h1>Memory Test</h1>
+    <h1>Тест на пам'ять</h1>
 </div>
 <div id="words" class="container">
-    <p>There are twelve words you need to remember. Please concentrate for a few seconds
-    on each word and click <b>Next</b> to check how many you managed to remember.</p>
+    <p>На екрані 12 слів, які Вам потрібно запам'ятати за 30 секунд. Будь ласка, сконцентруйтеся по декілька секунд
+        на кожному слові і натисніть <b>Далі</b>, щоб перевірити скільки слів Ви змогли запам'ятати.</p>
     <div class="row">
         <div class="column">
-            <p>Tiger</p>
-            <p>Violet</p>
-            <p>Sun</p>
-            <p>Hello</p>
-            <p>Forest</p>
-            <p>Teapot</p>
+            <p>Тигр</p>
+            <p>Фіалка</p>
+            <p>Сонце</p>
+            <p>Привіт</p>
+            <p>Ліс</p>
+            <p>Кульмінація</p>
         </div>
         <div class="column">
             <img src="/images/test-img-recall.png" alt="">
         </div>
         <div class="column">
-            <p>Magic</p>
-            <p>Holiday</p>
-            <p>Game</p>
-            <p>Success</p>
-            <p>Blossom</p>
-            <p>Orange</p>
+            <p>Магія</p>
+            <p>Свято</p>
+            <p>Золото</p>
+            <p>Успіх</p>
+            <p>Дружба</p>
+            <p>Помаранч</p>
         </div>
     </div>
-    <a class="btn btn-game" onclick="displayForm()">Next</a>
+    <a class="btn btn-game" onclick="displayForm()">Далі</a>
 </div>
 <div id="form" class="container">
     <div class="row">
         <div class="column">
-            <input id="tiger" name="tiger" type="text">
-            <input id="violet" name="violet" type="text">
-            <input id="sun" name="sun" type="text">
-            <input id="hello" name="hello" type="text">
-            <input id="forest" name="forest" type="text">
-            <input id="teapot" name="teapot" type="text">
+            <input id="тигр" name="тигр" type="text">
+            <input id="фіалка" name="фіалка" type="text">
+            <input id="сонце" name="сонце" type="text">
+            <input id="привіт" name="привіт" type="text">
+            <input id="ліс" name="ліс" type="text">
+            <input id="кульмінація" name="кульмінація" type="text">
         </div>
         <div class="column">
             <img src="/images/test-img-recall.png" alt="">
         </div>
         <div class="column">
-            <input id="magic" name="magic" type="text">
-            <input id="holiday" name="holiday" type="text">
-            <input id="game" name="game" type="text">
-            <input id="success" name="success" type="text">
-            <input id="blossom" name="blossom" type="text">
-            <input id="orange" name="orange" type="text">
+            <input id="магія" name="магія" type="text">
+            <input id="свято" name="свято" type="text">
+            <input id="золото" name="золото" type="text">
+            <input id="успіх" name="успіх" type="text">
+            <input id="дружба" name="дружба" type="text">
+            <input id="помаранч" name="помаранч" type="text">
         </div>
     </div>
-    <a class="btn btn-game" onclick="checkForm()">Check</a>
+    <a class="btn btn-check" onclick="checkForm()">Перевірити</a>
 </div>
 <div id="result" class="container">
-    <h2>Thank you for completing the test!</h2>
+    <h2>Дякуємо за завершення тестування!</h2>
     <img src="/images/test-img-research.png" alt="">
 </div>
 <div id="start" class="container">
-    <p>The cognitive psychologist George A. Miller of Harvard University's Department of Psychology
-         has written an article which states that the number of objects an average human can hold in short-term memory is 7 ± 2.
-        You can find out more about his research
-        <a href="http://www2.psych.utoronto.ca/users/peterson/psy430s2001/Miller%20GA%20Magical%20Seven%20Psych%20Review%201955.pdf"><b>here</b>!</a></p>
-    <p>For now, you can compare your score to this "magical number 7" and try out our games to improve your
-    cognitive skills!</p>
-    <a href="/" class="btn btn-game">Start</a>
+    <p>Когнітивний психолог Джордж Міллер кафедри психології Гарвардського університету написав статтю, в якій
+        стверджує, що кількість предметів(чисел, елементів), яку може втримати у своїй робочій пам'яті
+        середньостатистична людина дорівнює 7 ± 2.
+        Ви можете познайомитися детальніше з його роботою
+        <a target="blank" href="http://www2.psych.utoronto.ca/users/peterson/psy430s2001/Miller%20GA%20Magical%20Seven%20Psych%20Review%201955.pdf"><b>тут</b>!</a></p>
+    <p>Зараз Ви маєте можливість порівняти отриманий Вами бал з цим "магічним числом 7" і спробувати наші ігри задля
+         покращення Ваших когнітивних можливостей!</p>
+    <a href="/" class="btn btn-start">Почати</a>
 </div>
 
 <script src='/js/test.js'></script>

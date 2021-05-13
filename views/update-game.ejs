@@ -1,24 +1,25 @@
 <%- include('partials/header'); -%>
+<a href="/games" class="btn back"><i class="fas fa-arrow-left"></i>До ігор</a>
 
 <form>
-    <h2>Update Game</h2>
-    <label for="title">Title</label>
+    <h2>Оновлення</h2>
+    <label for="title">Назва</label>
     <input type="text" name="title" required/>
-    <label for="description">Description</label>
+    <label for="description">Опис</label>
     <textarea type="text" name="description" rows="5" cols="43" required></textarea>
-    <label for="level">Level</label>
+    <label for="level">Рівень</label>
     <select name="level">
-        <option value="All levels" selected>All levels</option>
-        <option value="Beginner">Beginner</option>
-        <option value="Average">Average</option>
-        <option value="Proficient">Proficient</option>
+        <option value="Усі рівні" selected>Усі рівні</option>
+        <option value="Початківець">Початківець</option>
+        <option value="Середній">Середній</option>
+        <option value="Досвідчений">Досвідчений</option>
     </select>
-    <label for="imageLink">Image Link</label>
+    <label for="imageLink">Зображення</label>
     <input type="text" name="imageLink" required/>
-    <label for="pageLink">Page Link</label>
+    <label for="pageLink">Посилання</label>
     <input type="text" name="pageLink" required/>
     <div class="errorText error"></div>
-    <button>Save Changes</button>
+    <button>Зберегти зміни</button>
 </form>
 
 <script src='/js/update-game.js'></script>

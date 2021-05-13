@@ -10,15 +10,15 @@ const roles = {
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
-    required: [true, 'Please enter an email.'],
+    required: [true, 'Будь ласка, введіть мейл.'],
     unique: true,
     lowercase: true,
-    validate: [isEmail, 'Please enter a valid email.']
+    validate: [isEmail, 'Будь ласка, введіть коректний мейл.']
   },
   password: {
     type: String,
-    required: [true, 'Please enter a password.'],
-    minLength: [8, 'Password length should not be less than 8.']
+    required: [true, 'Будь ласка, введіть пароль.'],
+    minLength: [8, 'Пароль має складатися не менше, ніж з 8 знаків.']
   },
   role: {
     type: String,
@@ -70,12 +70,12 @@ userSchema.virtual('isManager').get(function() {
 // method to get User status
 userSchema.virtual('status').get(function() {
   if (this.score >= 10000) {
-    return "Proficient";
+    return "Досвідчений";
   } 
   if (this.score >= 1000) {
-    return "Average";
+    return "Середній";
   }
-  return "Beginner"; 
+  return "Початківець";
 });
 
 const User = mongoose.model('user', userSchema);

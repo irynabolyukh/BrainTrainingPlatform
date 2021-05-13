@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const postSchema = new mongoose.Schema({
     header: {
         type: String,
-        required: true
+        required: [true, 'Будь ласка, введіть назву.']
     },
     description: {
         type: String,

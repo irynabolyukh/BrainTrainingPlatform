@@ -8,15 +8,15 @@ const errorChecking = (err) => {
 
   //incorrect email or password when logging
   if (err.message === 'wrong email'){
-    errors.email = 'Incorrect email.';
+    errors.email = 'Неправильний мейл.';
   }
   if (err.message === 'wrong password'){
-    errors.password = 'Incorrect password.';
+    errors.password = 'Неправильний пароль.';
   }
 
   //check for duplicate emails
   if (err.code === 11000){
-    errors.email = 'This email is already registered.';
+    errors.email = 'Користувач з таким мейлом уже існує.';
     return errors;
   }
 

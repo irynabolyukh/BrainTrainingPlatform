@@ -1,5 +1,6 @@
 /* google fonts */
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
 body {
   margin: 20px 40px;
   font-size: 1.4rem;
@@ -18,7 +19,7 @@ hr {
 h1, h2, h3, h4, ul, li, a, p, input, label, button, div, footer {
   margin: 0;
   padding: 0;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Comfortaa', sans-serif;
   color: #b95eb9;
 }
 
@@ -209,7 +210,9 @@ header .btn {
 }
 
 .games__game h5 {
-  margin: 3px auto;
+  margin: 7px auto;
+  color: #884288;
+  font-weight: 700;
 }
 
 footer {
@@ -301,8 +304,24 @@ textarea, select {
   border: 1px solid #ddd;
   font-size: 1em;
   width: 100%;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Comfortaa', sans-serif;
   color: #b95eb9;
   resize: none;
+}
+
+.back {
+  padding: 5px 10px;
+  font-weight: 600;
+  margin-left: 20px;
+  -webkit-transition: margin-left 0.3s ease-in;
+  transition: margin-left 0.3s ease-in;
+}
+
+.back i {
+  padding-right: 5px;
+}
+
+.back:hover {
+  margin-left: 5px;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -3,27 +3,27 @@
     <link rel="stylesheet" type="text/css" href="/../styles/game-sequence.css">
 </head>
 <body>
-<a href="/games" class="btn back"><i class="fas fa-arrow-left"></i>To all games</a>
+<a href="/games" class="btn back"><i class="fas fa-arrow-left"></i>До ігор</a>
 <div id='controls' class="container">
-    <label for='timeLimit'>Time limit(1-5)</label>
-        <% if (user.status === 'Beginner') { %>
-            <p>Recommended for you: 2</p>
-        <% } else if (user.status === 'Average') { %>
-            <p>Recommended for you: 1</p>
+    <label for='timeLimit'>Обмеження в часі(1-5)</label>
+        <% if (user.status === 'Початківець') { %>
+            <p>Рекомендовано: 2</p>
+        <% } else if (user.status === 'Середній') { %>
+            <p>Рекомендовано: 1</p>
         <% } else { %>
-            <p>Recommended for you: 2</p>
+            <p>Рекомендовано: 2</p>
         <% } %>
     <input type='number' id='timeLimit' name='timeLimit' min='1' max='5'>
-    <label for='amount'>Amount of circles(3-20)</label>
-        <% if (user.status === 'Beginner') { %>
-            <p>Recommended for you: 3</p>
-        <% } else if (user.status === 'Average') { %>
-            <p>Recommended for you: 5</p>
+    <label for='amount'>Кількість кружечків(3-20)</label>
+        <% if (user.status === 'Початківець') { %>
+            <p>Рекомендовано: 3</p>
+        <% } else if (user.status === 'Середній') { %>
+            <p>Рекомендовано: 5</p>
         <% } else { %>
-            <p>Recommended for you: 10</p>
+            <p>Рекомендовано: 10</p>
         <% } %>
     <input type='number' id='amount' name='amount' min='3' max='20'>
-    <a class="btn btn-game" id='start'>Start</a>
+    <a class="btn btn-game" id='start'>Почати</a>
 </div>
 <div class="container">
     <canvas id='canvas'></canvas>
