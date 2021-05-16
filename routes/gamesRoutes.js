@@ -6,6 +6,8 @@ const router = Router();
 
 router.get('/games', requireAuth, (req, res) => res.render('games'));
 router.get('/game-sequence', requireAuth, (req, res) => res.render('games/game-sequence'));
+router.get('/game-color', requireAuth, (req, res) => res.render('games/game-color'));
+router.get('/game-words', requireAuth, (req, res) => res.render('games/game-words'));
 router.post('/update-score', requireAuth, gamesController.scoreUpdate);
 
 router.get('/add-game', requireAuth, (req, res) => res.render('add-game'));

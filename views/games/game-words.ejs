@@ -1,0 +1,121 @@
+<%- include('../partials/header'); -%>
+<head>
+    <link rel="stylesheet" type="text/css" href="/../styles/game-sequence.css">
+    <link rel="stylesheet" type="text/css" href="/../styles/game-words.css">
+</head>
+<body>
+<a href="/games" class="btn back"><i class="fas fa-arrow-left"></i>До ігор</a>
+<div id='controls' class="container">
+    <label for='timeLimit'>Обмеження в часі(5-100)</label>
+    <% if (user.status === 'Початківець') { %>
+        <p>Рекомендовано: 50</p>
+    <% } else if (user.status === 'Середній') { %>
+        <p>Рекомендовано: 30</p>
+    <% } else { %>
+        <p>Рекомендовано: 10</p>
+    <% } %>
+    <input type='number' id='timeLimit' name='timeLimit' min='5' max='100' required>
+    <label for='amount'>Кількість слів, які потрібно запам'ятати(3-10)</label>
+    <% if (user.status === 'Початківець') { %>
+        <p>Рекомендовано: 5</p>
+    <% } else if (user.status === 'Середній') { %>
+        <p>Рекомендовано: 10</p>
+    <% } else { %>
+        <p>Рекомендовано: 10</p>
+    <% } %>
+    <input type='number' id='amount' name='amount' min='3' max='10' required>
+    <a class="btn btn-game" onclick="showWords()" id='start'>Почати</a>
+</div>
+<div id="wordsToRemember" class="container">
+    <table id="table1" cellspacing="15">
+    </table>
+</div>
+<div id="wordsToCheck" class="container">
+    <form id="form">
+    </form>
+    <a class="btn btn-game" onclick="checkWords()" id='check'>Перевірити</a>
+</div>
+<script>
+    const btn = document.querySelector('#start');
+    const wordsToRemember = document.querySelector('#wordsToRemember');
+    const table1 = document.querySelector("#table1");
+    const form = document.querySelector("#form");
+    const timeLimit = document.querySelector('#timeLimit');
+    const wordsAmount = document.querySelector('#amount');
+    const arrayOfWords = [{"first":"марс", "second": "хмара"},
+        {"first":"урок", "second": "камінь"},
+        {"first":"потяг", "second": "життя"},
+        {"first":"плаття", "second": "лебідь"},
+        {"first":"змія", "second": "король"},
+        {"first":"ліс", "second": "будинок"},
+        {"first":"марка", "second": "кордон"},
+        {"first":"книга", "second": "пікнік"},
+        {"first":"цирк", "second": "монета"},
+        {"first":"вилка", "second": "дерево"}];
+    $('#wordsToRemember').hide();
+    $('#wordsToCheck').hide();
+    //почати гру з натиском на кнопку старт
+    function showWords(){
+        let row, c1, c2;
+        $('#wordsToCheck').hide();
+        $("#table1").empty();
+        $("#form").empty();
+        if(wordsAmount.value <= arrayOfWords.length){
+            for (let i = 0; i < wordsAmount.value; i++) {
+                row = table1.insertRow(0);
+                c1 = row.insertCell(0);
+                c2 = row.insertCell(1);
+                c1.innerHTML = arrayOfWords[i].first;
+                c2.innerHTML = arrayOfWords[i].second;
+            }
+        }
+        row = table1.insertRow(0);
+        c1 = row.insertCell(0);
+        c2 = row.insertCell(1);
+        const h3 = document.createElement('H3');
+        const h31 = document.createElement('H3');
+        h3.innerHTML = "Перше слово";
+        c1.prepend(h3);
+        h31.innerHTML = "Друге слово";
+        c2.prepend(h31);
+        $('#wordsToRemember').show();
+        setTimeout(() => {
+            $('#wordsToRemember').hide();
+            if(wordsAmount.value <= arrayOfWords.length){
+                for (let i = 0; i < wordsAmount.value; i++) {
+                    $("#form").append('<label class="wordsLabel" for="'+ arrayOfWords[i].second +'"><h3>' + arrayOfWords[i].first + ':</h3></label>');
+                    $("#form").append('<input id="'+ arrayOfWords[i].second +'" name="'+ arrayOfWords[i].second +'" type="text">');
+                }
+            }
+            $("#wordsToCheck").show();
+        }, timeLimit.value * 1000);
+    }
+
+    function checkWords() {
+        const formArray = [];
+        let guessedWords = 0;
+        if(wordsAmount.value <= arrayOfWords.length){
+            for (let i = 0; i < wordsAmount.value; i++) {
+                formArray.push(document.getElementById(arrayOfWords[i].second));
+            }
+        }
+        formArray.forEach(element => ((element.value).toLowerCase() === element.name) ? guessedWords++ : guessedWords);
+        const newScore = (guessedWords * 10) / timeLimit.value;
+        const roundedScore = Math.round(newScore);
+        if(alert('Вітаємо! Ви отримали '+ roundedScore)){}
+        else {
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "/update-score", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({
+                score: roundedScore
+            }));
+            // почекаємо, щоб оновився рахунок
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
+        }
+    }
+</script>
+</body>
+<%- include('../partials/footer'); -%>
