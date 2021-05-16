@@ -1,0 +1,26 @@
+<%- include('../partials/header'); -%>
+<head>
+    <link rel="stylesheet" type="text/css" href="/../styles/game-sequence.css">
+    <link rel="stylesheet" type="text/css" href="/../styles/game-color.css">
+</head>
+<body>
+<a href="/games" class="btn back"><i class="fas fa-arrow-left"></i>До ігор</a>
+<div id='controls' class="container">
+    <h4>Чи співпадає значення верхньої карти з кольором тексту карти, що знаходить внизу?</h4>
+    <a class="btn btn-game" id='start'>Почати</a>
+</div>
+<div id="cards" class="container cards">
+    <div class="cards__description-1">назва кольору</div>
+    <div class="cards__card-1"><h3>ЧЕРВОНИЙ</h3></div>
+    <div class="cards__card-2"><h3>БЛАКИТНИЙ</h3></div>
+    <div class="cards__description-2">колір тексту</div>
+</div>
+<div id="btns" class="container btns">
+    <a class="btn btn-card" id='no'>НІ</a>
+    <a class="btn btn-card" id='yes'>ТАК</a>
+</div>
+<script>
+    const btn = document.querySelector('#start');
+</script>
+</body>
+<%- include('../partials/footer'); -%>
